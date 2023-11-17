@@ -61,17 +61,30 @@ const inputLoanAmount = document.querySelector('.form__input--loan-amount');
 const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
 
+const displayMovements = function(movement){
+  containerMovements.innerHTML = '';
+  movement.forEach(function(mov, i){
+    const type = mov > 0 ? 'deposit' : 'withdrawal';
+
+    const html = `
+    <div class="movements__row">
+      <div class="movements__type movements__type--${type}">${i + 1} ${type}</div>
+      <div class="movements__value">${mov}</div>
+    </div>
+    `;
+    containerMovements.insertAdjacentHTML('afterbegin', html);
+  });
+  
+}
+
+displayMovements(account1.movements)
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
 
-const currencies = new Map([
-  ['USD', 'United States dollar'],
-  ['EUR', 'Euro'],
-  ['GBP', 'Pound sterling'],
-]);
 
-// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+
 
 /////////////////////////////////////////////////
 // const arr = ['a', 'b', 'c', 'd', 'e'];
@@ -79,6 +92,33 @@ const currencies = new Map([
 // console.log(arr);
 // console.log(arr.splice(-1));
 // console.log(arr);
+
+
+// const julietDogs = [3, 5, 2, 12, 7];
+// const julietDogs1 = [9, 16, 6, 8, 3];
+// const kateDogs = [4, 1, 15, 8, 3];
+// const kateDogs1 = [10, 5, 6, 1, 4];
+
+// const checkDogs = function(jdogs, kdogs){
+//  const juletdogs = jdogs;
+//   const update = juletdogs.slice(1, -2);
+//   const juletdogss = update.concat(kdogs);
+  
+//   juletdogss.forEach(function(dogs, i){
+//   const age = dogs < 3 ? 'puppy' : 'adult';
+//   if(age === "adult"){
+//   console.log(`Dog number ${i + 1} is an ${age} and is ${dogs} years old`);  
+// }
+//   else {
+//     console.log(`Dog number ${i + 1} is  ${dogs} years old and still a ${age}`);  
+//   }
+//   }
+//   )
+// }
+// checkDogs(julietDogs, kateDogs);
+// console.log('===TEST RESULT 2===');
+// checkDogs(julietDogs1, kateDogs1);
+
 
 // const arr2 = ['j', 'i', 'h', 'g', 'f'];
 // console.log(arr2.reverse());
@@ -111,3 +151,33 @@ const currencies = new Map([
 //     console.log(`${i + 1}: You deposited $${movement}`)
 //   }
 // })
+
+// const currencies = new Map([
+//   ['USD', 'United States dollar'],
+//   ['EUR', 'Euro'],
+//   ['GBP', 'Pound sterling'],
+// ]);
+
+// currencies.forEach(function(value, key, map){
+//   console.log(`${key}: ${value}`)
+// })
+
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+const euroToUSD = 1.1;
+
+const movementUSD = movements.map(mov =>  mov * euroToUSD)
+// console.log(movements);
+// console.log(movementUSD);
+
+const displayMOvements =movements.map((movement, i) => `${i + 1}: you ${movement < 0? 'withdrew' : 'deposited'} $${Math.abs(movement)}`)
+
+
+const createUser = function(accs){
+  accs.forEach(function(acc){
+    acc.username = acc.owner.toLowerCase().split(' ').map(name =>name[0]).join('');
+  })
+}
+
+// createUser(accounts)
+console.log(accounts)
