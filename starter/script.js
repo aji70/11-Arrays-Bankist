@@ -179,5 +179,5 @@ const createUser = function(accs){
   })
 }
 
-// createUser(accounts)
+createUser(accounts)
 console.log(accounts)
