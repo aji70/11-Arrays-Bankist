@@ -78,6 +78,16 @@ const displayMovements = function(movement){
 }
 
 displayMovements(account1.movements)
+const calcPrintBalance = function(bal){
+  const balance = bal.reduce( (acc, c) => acc + c)
+  // return balance
+  labelBalance.textContent = `${balance}EUR`
+}
+
+// labelBalance.innerHTML = 
+calcPrintBalance(account1.movements)
+
+
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
@@ -164,20 +174,65 @@ displayMovements(account1.movements)
 
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
-const euroToUSD = 1.1;
+// const euroToUSD = 1.1;
 
-const movementUSD = movements.map(mov =>  mov * euroToUSD)
-// console.log(movements);
-// console.log(movementUSD);
+// const movementUSD = movements.map(mov =>  mov * euroToUSD)
+// // console.log(movements);
+// // console.log(movementUSD);
 
-const displayMOvements =movements.map((movement, i) => `${i + 1}: you ${movement < 0? 'withdrew' : 'deposited'} $${Math.abs(movement)}`)
+// const displayMOvements =movements.map((movement, i) => `${i + 1}: you ${movement < 0? 'withdrew' : 'deposited'} $${Math.abs(movement)}`)
 
 
-const createUser = function(accs){
-  accs.forEach(function(acc){
-    acc.username = acc.owner.toLowerCase().split(' ').map(name =>name[0]).join('');
-  })
+// const createUser = function(accs){
+//   accs.forEach(function(acc){
+//     acc.username = acc.owner.toLowerCase().split(' ').map(name =>name[0]).join('');
+//   })
+// }
+
+// createUser(accounts)
+// console.log(movements)
+// const deposit = movements.filter(move => move > 0)
+// console.log(deposit)
+// const withdrawal = movements.filter(move => move < 0)
+// console.log(withdrawal)
+
+// const sum = movements.reduce((acc, c) => acc + c, 0)
+
+// console.log(sum)
+// const max = movements.reduce((acc, mov) => {
+//   if (acc > mov){
+//      return acc} 
+//      else {return mov}
+//     })
+// console.log(max)
+
+const agess = [5, 2, 4, 1, 15, 8, 3];
+const ages1 = [16, 6, 10, 5, 6, 1, 4];
+
+
+const calculateAverageAge = function(ages){const humanAge = ages.map(function(curr){
+  if(curr <= 2){
+    const humanage = curr * 2   
+    return humanage 
+  }
+  else{
+   const humanage = 16 + curr * 4
+   
+    return humanage
+  }
+})
+const x = function(c){
+  if(c > 18) return c;
 }
+const updated = humanAge.filter(x);
+console.log(updated)
 
-createUser(accounts)
-console.log(accounts)
+const sum  = updated.reduce(function(acc, c){
+  return (acc + c);
+}, 0)
+const average = sum / updated.length;
+
+return average;
+}
+console.log(calculateAverageAge(agess))
+console.log(calculateAverageAge(ages1))
