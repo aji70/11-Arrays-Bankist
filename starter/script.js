@@ -172,7 +172,7 @@ calcPrintBalance(account1.movements)
 //   console.log(`${key}: ${value}`)
 // })
 
-const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 // const euroToUSD = 1.1;
 
